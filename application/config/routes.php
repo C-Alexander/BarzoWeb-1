@@ -65,3 +65,6 @@ $route['contact/(:any)'] = 'contact/index';
 $route['logout'] = 'login/logout';
 $route['login/(:any)'] = 'login/index';
 $route['login/handleLogin'] = 'login/handleLogin';
+$route['logout'] = 'login/logout';
+$route['login/(:any)'] = 'login/index';
+$route['login/handleLogin'] = 'login/handleLogin';

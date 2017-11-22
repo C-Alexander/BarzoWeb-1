@@ -27,10 +27,16 @@ class Pubs extends CI_Controller {
         $data['menu'] = $this->menulib->getMenuAsArray();
 
         $this->load->model('Pubs_model');
+        $this->load->model('Events_model');
 
         $pubs = $this->Pubs_model->getAllPubs();
+        $events = $this->Events_model->getAllEvents();
+
         if(isset($pubs) || !empty($pubs)){
             $data['pubs'] = $pubs;
+        }
+        if (!empty($events)) {
+            $data['events'] = $events;
         }
 
         $this->load->view('templates/header', $data);

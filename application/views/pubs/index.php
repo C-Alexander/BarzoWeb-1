@@ -15,9 +15,44 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="alert alert-warning" id="no_results_error">
                 </div>
             </div>
+            <?php if (!empty($events)) : ?>
+                <div id="hideMeEventList">
+                    <div class="col-md-10 col-md-offset-1" id="event_list">
+                        <?php foreach ($events as $event_id => $event): ?>
+                            <a href="<?php echo base_url() . "pubs/" . $event['bar.id']; ?>">
+                                <div class="row pubRow">
+                                    <div class="col-md-8 padding-0">
+                                        <div class="row">
+                                            <div class="col-md-12 padding-t-5">
+                                                <h2><?php echo $event['name']; ?></h2>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <?php echo $event['description']; ?>
+                                            </div>
+                                            <div class="col-md-12 padding-t-5">
+                                                <h6><?php echo $event['bar.name']; ?></h6>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <span class="glyphicon glyphicon-chevron-right pubRowArrow"></span>
+                                    </div>
+                                </div>
+                            </a>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+            <?php else : ?>
+                <div class="col-md-8 col-md-offset-2">
+                    <div class="alert alert-warning">
+                        Something went wrong! Please try again later.
+                    </div>
+                </div>
+            <?php endif; ?>
             <?php if(isset($pubs) && !empty($pubs)) : ?>
             <div id="hideMeBarList">
-                <div class="col-md-10 col-md-offset-1" id="bar_list">
+                <div class="col-md-10 col-md-offset-1 padding-t-50" id="bar_list">
                     <?php foreach ($pubs as $pub_key => $pub): ?>
                             <a href="<?php echo base_url() . "pubs/" . $pub['id']; ?>">
                                 <!--Whole row -->

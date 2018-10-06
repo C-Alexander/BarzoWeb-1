@@ -2652,3 +2652,15 @@ svg {
         stroke-width: 20;
     }
 }
+
+.loginForm {
+  max-width: 900px;
+}
+
+.loginForm h1 {
+  color: white;
+}
+
+.loginForm label {
+  color: lightgrey;
+}

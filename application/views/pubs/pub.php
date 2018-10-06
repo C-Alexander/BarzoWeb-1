@@ -48,7 +48,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <a href="https://res.cloudinary.com/ixbitz/image/upload/v1509307035/placeholder400x400_jwk0g9.png"><img src="https://res.cloudinary.com/ixbitz/image/upload/v1509307035/placeholder400x400_jwk0g9.png" class="profileImg margin-10"/></a>
                     <?php endif; ?>
                 </div>
+                <div class="row">
+                    <h3 class="margin-10">Events</h3>
+                    <!-- All images -->
+                    <?php if (isset($pub['events']) && count($pub['events']) > 0) : ?>
+                        <?php foreach ($pub['events'] as $event) : ?>
+                            <div class="row">
+                                <div class="col-md-12 padding-t-10">
+                                    <h2><?php echo $event['name']; ?></h2>
+                                </div>
+                                <div class="col-md-12">
+                                    <?php echo $event['description']; ?>
+                                </div>
+                                <div class="col-md-12 padding-t-50">
+                                    <h6><?php echo $event['start']; ?></h6>
 
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    <?php else : ?>
+                        No events for this bar!
+                    <?php endif; ?>
+                </div>
             </div>
             <?php else : ?>
             <div class="col-md-8 col-md-offset-2">
